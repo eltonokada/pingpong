@@ -1,0 +1,30 @@
+<h1 class='page-header'>Log Game</h1>
+
+<%= form_for(@game) do |game| %>
+  <div class="form-group">
+    <%= label_tag :date_played %>
+    <%= date_select(:game, :played_date, order: [:month, :day, :year], include_blank: true) %>    
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :opponent %>
+    <%= select_tag "opponent", options_from_collection_for_select(@users, "id", "email"), prompt: "Opponent" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :your_score %>
+    <%= text_field_tag :current_user_score, "", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :their_score %>
+    <%= text_field_tag :opponent_score, "", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= submit_tag :Save %>
+    <%= link_to "Cancel", type: :reset %>
+  </div>
+<% end %>
+
+<%# image_tag('log_game.png') %>

@@ -1,0 +1,20 @@
+<h1 class='page-header'>History</h1>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <td>Date</td>
+    <td>Opponent</td>
+    <td>Score</td>
+    <td>Result</td>
+  </tr>
+<% @games.each do |game| %>
+  <tr>
+    <td><%= game.played_date %></td>
+    <td><%= game.opponent(current_user) %></td>
+    <td><%= game.current_user_score(current_user) %> - <%= game.opponent_score(current_user) %></td>
+    <td><%= game.result(current_user) %></td>
+  </tr>  
+<% end %>
+<table>
+
+<%# image_tag('history.png') %>
