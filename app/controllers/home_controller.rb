@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def index
     @scores = Score.joins(:user).
-    select('*, sum(score_points) as total').
-    group('user_id').
+    select('users.*, sum(score_points) as total').
+    group('users.id').
     order('total DESC')
   end
 
