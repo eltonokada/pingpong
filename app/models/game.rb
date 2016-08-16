@@ -3,8 +3,7 @@ class Game < ActiveRecord::Base
   has_many :users, through: :scores
 
   def opponent(user)
-    p "OPPONENT"
-    p self.users.where.not(id: user).first.email
+    self.users.where.not(id: user).first.email
   end
 
   def current_user_score(user)
